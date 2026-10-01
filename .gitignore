@@ -1,0 +1,13 @@
+target/
+node_modules/
+app/dist/
+app/src/wasm/
+app/src-tauri/target/
+dist/
+tests/vectors/*
+!tests/vectors/expected.json
+*.log
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
