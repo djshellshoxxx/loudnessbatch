@@ -23,6 +23,10 @@ jobs:
         with:
           node-version: 22
       - run: node tests/audio-core.test.mjs
+      - name: Parse browser modules
+        run: |
+          node --input-type=module --check < app.js
+          node --input-type=module --check < audio-core.js
 
   deploy:
     needs: test
