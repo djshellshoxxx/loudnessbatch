@@ -1,30 +1,73 @@
 # LoudnessBatch
 
-Batch-analyze your reference tracks and your mix, see exactly where your mix sits against them, check the real quality of every file, and A/B everything level-matched.
+**LoudnessBatch by Circuit Drift Labs** batch-analyzes mixes and reference tracks locally in the browser and shows how they compare on loudness, peak level, RMS, dynamics and stereo behaviour.
 
-**Web app** (runs in your browser, files never leave your computer) and a **downloadable desktop app** (Windows first) from one codebase, plus a command-line tool.
+Live web app: https://djshellshoxxx.github.io/loudnessbatch/
 
-> Status: **spec stage.** Nothing is built yet. The full spec lives in [`spec/`](spec/INDEX.md).
+Circuit Drift Labs: https://circuitdriftlabs.djshellshoxxx.github.io/
 
-## What it does
+## Browser V1
 
-- **Loudness:** integrated LUFS, short-term and momentary max, loudness range, loud-section loudness (ITU-R BS.1770 / EBU R128)
-- **Peaks and dynamics:** true peak, sample peak, intersample overs, clipping, RMS, crest factor, PLR, PSR
-- **Tonal balance:** your mix's spectrum against the reference range, 7-band balance, tilt, plain-English notes like "2.3 dB heavy at 80 to 140 Hz"
-- **Stereo:** correlation, width per band, low-end mono check, balance
-- **File quality:** real file type, codec, encoder, bitrate (CBR/VBR/ABR), sample rate, stored vs effective bit depth, bandwidth cutoff, fake-lossless / transcode detection, upsampling detection, quality grade A to F
-- **Streaming preview:** what Spotify, Apple Music, YouTube, Amazon, Tidal, Deezer and SoundCloud would do to your track
-- **Level-matched A/B playback** with mono/side/band solo monitoring
-- **Batch view:** audit a whole folder, filter to problems only, export CSV
+The current GitHub Pages build provides:
 
-## Formats
+- local multi-file decoding through Web Audio
+- 48 kHz analysis path
+- integrated loudness with BS.1770-style K-weighting, 400 ms blocks, 75% overlap, −70 LUFS absolute gating and −10 LU relative gating
+- sample peak
+- **estimated** true peak for browser V1
+- RMS
+- crest factor
+- clipped-sample count
+- DC offset
+- stereo correlation
+- Reference mode: first file vs reference median/range
+- Album / EP Consistency mode
+- DJ Crate Consistency mode
+- Revision Difference mode
+- broad Start / Middle / End section analysis
+- CSV and JSON export
+- contextual handoff to TrackStats
 
-WAV, MP3, OGG (Vorbis), FLAC, and Apple formats: AIFF/AIFC, M4A (AAC and ALAC / Apple Lossless), CAF.
+The browser build deliberately labels its interpolated true-peak value as an estimate. The repository's native-engine specification retains the stricter ITU/EBU true-peak implementation and broader desktop/CLI roadmap.
 
-## Spec
+## Standards
 
-Start at [`spec/INDEX.md`](spec/INDEX.md). Build order and status: [`spec/PROGRESS.md`](spec/PROGRESS.md).
+The integrated-loudness implementation follows the current ITU-R BS.1770-5 gating structure. EBU R 128 uses −23 LUFS as a broadcast programme target; LoudnessBatch does not imply that one loudness target is universally correct for music production.
+
+References:
+
+- ITU-R BS.1770-5: https://www.itu.int/rec/R-REC-BS.1770-5-202311-I/en
+- EBU R 128: https://tech.ebu.ch/publications/r128
+
+## Privacy
+
+Audio is decoded and analyzed locally. There is no account, upload service or analytics path for audio-derived values.
+
+## Native / desktop roadmap
+
+The detailed `spec/` directory remains the authority for the Rust `lb-core`, WebAssembly, Tauri desktop app and `lb-cli` roadmap. The Pages V1 is an immediately usable web surface, not a replacement for those specifications.
+
+## Related Circuit Drift Labs tools
+
+- TrackStats: https://djshellshoxxx.github.io/trackstats/
+- Transposition Calculator: https://djshellshoxxx.github.io/TranspositionCalc/
+- MIDItest: https://djshellshoxxx.github.io/Miditest/
+
+Experiments:
+
+- Binaural Web Beats: https://djshellshoxxx.github.io/binerualwebeats/
+- BabbleForge: https://djshellshoxxx.github.io/babbleforge/
+
+## Development
+
+The Pages surface is static HTML/CSS/JavaScript.
+
+```bash
+node tests/audio-core.test.mjs
+```
+
+The larger multi-platform build is documented under `spec/INDEX.md`.
 
 ## License
 
-MIT
+See `LICENSE`.
