@@ -1,0 +1,13 @@
+import assert from 'node:assert/strict';import {samplePeak,dbfs,rmsDb,integratedLufs,stereoCorrelation,crestFactorDb,peakCount,dcOffset,analyzePcm} from '../audio-core.js';
+const sr=48000,n=sr*2;const sine=(amp,phase=0)=>Float32Array.from({length:n},(_,i)=>amp*Math.sin(2*Math.PI*1000*i/sr+phase));
+const a=sine(.1),b=sine(.1);
+assert.ok(Math.abs(samplePeak([a,b])-.1)<1e-4);
+assert.ok(Math.abs(dbfs(.1)+20)<1e-9);
+assert.ok(rmsDb([a])<-22.9&&rmsDb([a])>-23.2);
+const l1=integratedLufs([a,b],sr),l2=integratedLufs([sine(.05),sine(.05)],sr);assert.ok(Number.isFinite(l1));assert.ok(Math.abs((l2-l1)+6.0206)<.15);
+assert.ok(stereoCorrelation([a,b])>.999);assert.ok(stereoCorrelation([a,sine(.1,Math.PI)])<-.999);
+assert.ok(crestFactorDb([a])>2.9&&crestFactorDb([a])<3.2);
+assert.equal(peakCount([a],.99),0);assert.ok(Math.abs(dcOffset([a]))<1e-5);
+const m=analyzePcm([a,b],sr);assert.ok(Number.isFinite(m.lufs));assert.ok(m.correlation>.99);
+assert.equal(integratedLufs([new Float32Array(n)],sr),-Infinity);
+console.log('LoudnessBatch audio-core tests: PASS');
