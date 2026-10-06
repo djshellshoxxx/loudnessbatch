@@ -1,4 +1,35 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="LoudnessBatch by Circuit Drift Labs — local batch loudness, dynamics and reference analysis."><meta name="theme-color" content="#07101a"><title>LoudnessBatch — Circuit Drift Labs</title><link rel="icon" type="image/svg+xml" href="./favicon.svg"><link rel="stylesheet" href="./styles.css"></head><body>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="LoudnessBatch by Circuit Drift Labs — local batch loudness, dynamics and reference analysis."><meta name="theme-color" content="#07101a"><title>LoudnessBatch — Circuit Drift Labs</title><link rel="icon" type="image/svg+xml" href="./favicon.svg"><link rel="stylesheet" href="./styles.css">  <!-- SEO: Circuit Drift Labs -->
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+  <link rel="canonical" href="https://djshellshoxxx.github.io/loudnessbatch/">
+  <meta property="og:site_name" content="Circuit Drift Labs">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="LoudnessBatch — Circuit Drift Labs">
+  <meta property="og:description" content="LoudnessBatch by Circuit Drift Labs — local batch loudness, dynamics and reference analysis.">
+  <meta property="og:url" content="https://djshellshoxxx.github.io/loudnessbatch/">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="LoudnessBatch — Circuit Drift Labs">
+  <meta name="twitter:description" content="LoudnessBatch by Circuit Drift Labs — local batch loudness, dynamics and reference analysis.">
+  <link rel="home" href="https://djshellshoxxx.github.io/circuitdriftlabs/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "LoudnessBatch — Circuit Drift Labs",
+    "url": "https://djshellshoxxx.github.io/loudnessbatch/",
+    "description": "LoudnessBatch by Circuit Drift Labs — local batch loudness, dynamics and reference analysis.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Circuit Drift Labs",
+      "url": "https://djshellshoxxx.github.io/circuitdriftlabs/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Circuit Drift Labs",
+      "url": "https://djshellshoxxx.github.io/circuitdriftlabs/"
+    }
+  }
+  </script>
+</head><body>
 <header class="top"><a class="brand" href="https://djshellshoxxx.github.io/circuitdriftlabs/"><span>CD</span> Circuit Drift Labs</a><nav><a href="https://djshellshoxxx.github.io/trackstats/">TrackStats</a><a href="https://djshellshoxxx.github.io/TranspositionCalc/">Transposition</a><a href="https://djshellshoxxx.github.io/Miditest/">MIDItest</a></nav></header>
 <main><section class="hero"><div><p class="eyebrow">BATCH AUDIO ANALYSIS</p><h1>LoudnessBatch</h1><p>Compare mixes and references on integrated loudness, peaks, RMS, crest factor, clipping, DC offset and stereo correlation. Files decode and analyze locally in your browser.</p><p class="note">Integrated loudness follows BS.1770-style K-weighting and two-stage gating on a 48 kHz analysis path. Browser V1 reports <b>estimated true peak</b>; the native roadmap retains the stricter true-peak implementation.</p></div><div class="hero-actions"><label class="button primary">Choose Audio Files<input id="files" type="file" accept="audio/*,.wav,.flac,.mp3,.m4a,.aiff,.aif,.ogg,.opus" multiple hidden></label><button id="cancel" disabled>Cancel</button></div></section>
 <section class="panel status"><div><strong id="status">Choose files to analyze.</strong><span id="progressText"></span></div><div class="progress"><span id="progress"></span></div><p id="warnings"></p></section>
