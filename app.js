@@ -1,3 +1,8 @@
+// LoudnessBatch™
+// Copyright © 2026 Sheldon Davidson.
+// Licensed under the MIT License. See LICENSE.
+// SPDX-License-Identifier: MIT
+
 import {analyzePcm,integratedLufs,median,percentile} from './audio-core.js';
 const $=s=>document.querySelector(s); const els={files:$('#files'),cancel:$('#cancel'),status:$('#status'),progressText:$('#progressText'),progress:$('#progress'),warnings:$('#warnings'),overview:$('#overview'),rows:$('#rows'),modeHelp:$('#modeHelp'),insightTitle:$('#insightTitle'),insight:$('#insight'),loudnessChart:$('#loudnessChart'),crestChart:$('#crestChart'),corrChart:$('#corrChart'),exportCsv:$('#exportCsv'),exportJson:$('#exportJson')};
 let results=[],cancelled=false,mode='reference',audioCtx=null;
