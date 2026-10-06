@@ -1,3 +1,8 @@
+// LoudnessBatch™
+// Copyright © 2026 Sheldon Davidson.
+// Licensed under the MIT License. See LICENSE.
+// SPDX-License-Identifier: MIT
+
 const PRE_B=[1.53512485958697,-2.69169618940638,1.19839281085285];
 const PRE_A=[1,-1.69065929318241,0.73248077421585];
 const RLB_B=[1,-2,1];
