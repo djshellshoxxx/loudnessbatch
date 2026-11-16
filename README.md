@@ -39,6 +39,10 @@ References:
 - ITU-R BS.1770-5: https://www.itu.int/rec/R-REC-BS.1770-5-202311-I/en
 - EBU R 128: https://tech.ebu.ch/publications/r128
 
+## Wiki
+
+Wiki source pages are in [docs/wiki/](docs/wiki/Home.md): user guide, developer guide, architecture rationale and codebase map.
+
 ## Privacy
 
 Audio is decoded and analyzed locally. There is no account, upload service or analytics path for audio-derived values.
